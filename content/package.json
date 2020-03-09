@@ -6,21 +6,21 @@
     "email": "hello@trilon.io",
     "url": "https://trilon.io"
   },
-  "repository": {
-    "url": "https://github.com/TrilonIO/aspnetcore-Vue-starter"
-  },
-  "license": "MIT",
   "scripts": {
-    "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run",
     "build": "npm run build-vendor:prod && npm run build:prod",
-    "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "build-vendor:prod": "cross-env NODE_ENV=production webpack --config webpack.config.vendor.js --progress",
-    "build-vendor:dev": "cross-env NODE_ENV=development webpack --config webpack.config.vendor.js --progress",
+    "test:unit": "vue-cli-service test:unit",
+    "test": "jest",
     "lint": "eslint -c ./.eslintrc.js ClientApp/**/*.js  ClientApp/**/*.vue  ClientApp/**/*.json webpack*.js",
+    "build-vendor:dev": "cross-env NODE_ENV=development webpack --config webpack.config.vendor.js --progress",
+    "build-vendor:prod": "cross-env NODE_ENV=production webpack --config webpack.config.vendor.js --progress",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "cross-env ASPNETCORE_ENVIRONMENT=Development NODE_ENV=development dotnet run",
     "install": "npm run build-vendor:dev",
     "update-packages": "npx npm-check -u"
   },
   "dependencies": {
+    "@jest/source-map": "^25.1.0",
+    "@vue/cli-service": "^4.2.3",
     "axios": "^0.18.0",
     "core-js": "^2.5.3",
     "vue": "^2.6.10",
@@ -50,11 +50,13 @@
     "@fortawesome/free-brands-svg-icons": "^5.7.0",
     "@fortawesome/free-solid-svg-icons": "^5.7.0",
     "@fortawesome/vue-fontawesome": "^0.1.5",
+    "@vue/cli-plugin-unit-jest": "^4.2.3",
+    "@vue/test-utils": "1.0.0-beta.31",
     "aspnet-webpack": "^3.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "bootstrap": "^4.0.0",
-    "cross-env": "^5.2.0",
+    "cross-env": "^5.2.1",
     "css-loader": "^2.1.0",
     "eslint": "^5.12.1",
     "eslint-config-standard": "^12.0.0",
@@ -79,5 +81,9 @@
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
     "webpack-hot-middleware": "^2.21.2"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/TrilonIO/aspnetcore-Vue-starter"
   }
 }
